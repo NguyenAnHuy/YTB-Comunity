@@ -45,6 +45,10 @@ from tkinter import ttk				#Thư viện khai báo combobox
 import random
 from pathlib import Path
 
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+
 root = Tk()
 root.wm_title("Mai mông to >.< ")
 root.geometry('480x480')
@@ -57,13 +61,19 @@ key=""
 
 
 def Action_cmt():
-	chrome_driver_path = str(Path().absolute()) + '\\driver offline\\chromedriver.exe'
+	# chrome_driver_path = str(Path().absolute()) + '\\driver offline\\chromedriver.exe'
+	ser=Service(ChromeDriverManager().install())		# hàm đưa ra vị trí file chromedriver.exe
+
 	chrome_options = webdriver.ChromeOptions()
+	chrome_options.add_experimental_option("detach", True)	# Giữ trình duyệt ko bị đóng
+
 	# prefs = {"profile.default_content_setting_values.notifications" : 2, "profile.default_content_setting_values.images" : 2}	#Gộp lại để vừa tắt thông báo vừa tắt ảnh
 	# chrome_options.add_experimental_option("prefs",prefs)
 	chrome_options.add_argument(r'--user-data-dir='+ str(Path().absolute())+'\\User Data 1')
 	chrome_options.add_argument(r'--profile-directory=Profile 9')
-	driver = webdriver.Chrome(options=chrome_options,executable_path=chrome_driver_path)
+	# driver = webdriver.Chrome(options=chrome_options,executable_path=chrome_driver_path)
+	driver = webdriver.Chrome(service=ser, options=chrome_options)
+
 	current_url = etr_link_cmt.get()
 	driver.get(etr_link_cmt.get())
 	sleep(2)
@@ -75,22 +85,30 @@ def Action_cmt():
 		#random_decimal_1 = random.randint(110,130)/100
 		random_decimal_2 = random.randint(50,60)/100
 		if i ==0:
-			driver.find_element_by_id('img').click()
+			# driver.find_element_by_id('img').click()		# Đã bị loại bỏ
+			driver.find_element(By.ID, 'img').click()
 			sleep(random_decimal_2)
-			driver.find_elements_by_id('right-icon')[3].click()			# Click vào chuyển acc
+			# driver.find_elements_by_id('right-icon')[3].click()			# Click vào chuyển acc
+			driver.find_elements(By.ID, 'right-icon')[2].click()
 			sleep(random_decimal_2)
-			driver.find_elements_by_id('contentIcon')[i+1].click()		# Click vào từng acc
-			sleep(random.randint(110,130)/100)
-			driver.find_elements_by_id(key)[1].click()
+			# driver.find_elements_by_id('contentIcon')[i+1].click()		# Click vào từng acc
+			driver.find_elements(By.ID, 'contentIcon')[i+1].click()
+			# driver.find_elements_by_id(key)[1].click()
+			sleep(random_decimal_2)
+			driver.find_elements(By.ID, key)[1].click()
 			sleep(0.5)
 		else:
-			driver.find_element_by_id('img').click()
+			# driver.find_element_by_id('img').click()
+			driver.find_element(By.ID, 'img').click()
 			sleep(random_decimal_2)
-			driver.find_elements_by_id('right-icon')[3].click()			# Click vào chuyển acc
+			# driver.find_elements_by_id('right-icon')[3].click()			# Click vào chuyển acc
+			driver.find_elements(By.ID, 'right-icon')[2].click()
 			sleep(random_decimal_2)
-			driver.find_elements_by_id('contentIcon')[i].click()		# Click vào từng acc
+			# driver.find_elements_by_id('contentIcon')[i].click()		# Click vào từng acc
+			driver.find_elements(By.ID, 'contentIcon')[i].click()
 			sleep(random.randint(110,130)/100)
-			driver.find_elements_by_id(key)[1].click()
+			# driver.find_elements_by_id(key)[1].click()
+			driver.find_elements(By.ID, key)[1].click()
 			sleep(0.5)
 
 	#sleep(120)
@@ -98,7 +116,7 @@ def Action_cmt():
 
 def Vote_cmt():
 	global key
-	key="like-button"
+	key='like-button'
 	Action_cmt()
 def Diss_cmt():
 	global key
