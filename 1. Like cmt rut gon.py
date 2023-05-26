@@ -15,28 +15,7 @@
 		# sleep(0.5)
 		# driver.find_elements_by_id('channel-title')[3].click()
 
-	# for i in range(0,10):
-		
-	# 	random_decimal_1 = random.randint(110,130)/100
-	# 	random_decimal_2 = random.randint(50,60)/100
-	# 	if i ==0:
-	# 		driver.find_element_by_id('img').click()
-	# 		sleep(random_decimal_2)
-	# 		driver.find_elements_by_id('right-icon')[3].click()			# Click vào chuyển acc
-	# 		sleep(random_decimal_2)
-	# 		driver.find_elements_by_id('contentIcon')[i+1].click()		# Click vào từng acc
-	# 		sleep(random_decimal_1)
-	# 		driver.find_elements_by_id(key)[1].click()
-	# 		sleep(random_decimal_1)
-	# 	else:
-	# 		driver.find_element_by_id('img').click()
-	# 		sleep(random_decimal_2)
-	# 		driver.find_elements_by_id('right-icon')[3].click()			# Click vào chuyển acc
-	# 		sleep(random_decimal_2)
-	# 		driver.find_elements_by_id('contentIcon')[i].click()		# Click vào từng acc
-	# 		sleep(random_decimal_1)
-	# 		driver.find_elements_by_id(key)[1].click()
-	# 		sleep(random_decimal_1)
+
 
 from selenium import webdriver
 from time import sleep
@@ -50,7 +29,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
 root = Tk()
-root.wm_title("Mai mông to >.< ")
+root.wm_title("Cún đáng yêu 💘💘 ")
 root.geometry('480x480')
 # Group1 Frame --------------------------------------------Tạo 1 khung chung
 group1 = LabelFrame(root, text="Youtube community", padx=5, pady=5)
@@ -65,7 +44,8 @@ def Action_cmt():
 	ser=Service(ChromeDriverManager().install())		# hàm đưa ra vị trí file chromedriver.exe
 
 	chrome_options = webdriver.ChromeOptions()
-	chrome_options.add_experimental_option("detach", True)	# Giữ trình duyệt ko bị đóng
+	chrome_options.add_experimental_option("detach", True)	# Giữ chrome luôn mở
+	chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])	# Tắt thông báo chrome đang bị điều khiển
 
 	# prefs = {"profile.default_content_setting_values.notifications" : 2, "profile.default_content_setting_values.images" : 2}	#Gộp lại để vừa tắt thông báo vừa tắt ảnh
 	# chrome_options.add_experimental_option("prefs",prefs)
@@ -82,7 +62,7 @@ def Action_cmt():
 
 
 	for i in range(0,10):
-		#random_decimal_1 = random.randint(110,130)/100
+		random_decimal_1 = random.randint(110,130)/100
 		random_decimal_2 = random.randint(50,60)/100
 		if i ==0:
 			# driver.find_element_by_id('img').click()		# Đã bị loại bỏ
@@ -93,8 +73,8 @@ def Action_cmt():
 			sleep(random_decimal_2)
 			# driver.find_elements_by_id('contentIcon')[i+1].click()		# Click vào từng acc
 			driver.find_elements(By.ID, 'contentIcon')[i+1].click()
+			sleep(random_decimal_1)
 			# driver.find_elements_by_id(key)[1].click()
-			sleep(random_decimal_2)
 			driver.find_elements(By.ID, key)[1].click()
 			sleep(0.5)
 		else:
@@ -106,17 +86,17 @@ def Action_cmt():
 			sleep(random_decimal_2)
 			# driver.find_elements_by_id('contentIcon')[i].click()		# Click vào từng acc
 			driver.find_elements(By.ID, 'contentIcon')[i].click()
-			sleep(random.randint(110,130)/100)
+			sleep(random_decimal_1)
 			# driver.find_elements_by_id(key)[1].click()
 			driver.find_elements(By.ID, key)[1].click()
 			sleep(0.5)
 
-	#sleep(120)
+	sleep(3)
 	driver.quit()
 
 def Vote_cmt():
 	global key
-	key='like-button'
+	key="like-button"
 	Action_cmt()
 def Diss_cmt():
 	global key
