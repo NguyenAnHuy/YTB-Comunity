@@ -40,7 +40,7 @@ key=""
 
 
 def Action_cmt():
-	# chrome_driver_path = str(Path().absolute()) + '\\driver offline\\chromedriver.exe'
+	# chrome_driver_path = str(Path().absolute()) + '\\bin\\chromedriver.exe'
 	ser=Service(ChromeDriverManager().install())		# hàm đưa ra vị trí file chromedriver.exe
 
 	chrome_options = webdriver.ChromeOptions()
@@ -54,6 +54,7 @@ def Action_cmt():
 	# driver = webdriver.Chrome(options=chrome_options,executable_path=chrome_driver_path)
 	driver = webdriver.Chrome(service=ser, options=chrome_options)
 
+	sleep(1)
 	current_url = etr_link_cmt.get()
 	driver.get(etr_link_cmt.get())
 	sleep(2)
