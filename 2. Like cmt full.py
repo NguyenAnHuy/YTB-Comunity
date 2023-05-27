@@ -21,7 +21,6 @@ group1.grid(row=0, column=0, padx=10, pady=10, sticky=E+W+N+S)
 
 def Action_cmt():
 	ser=Service(ChromeDriverManager().install())		# hàm đưa ra vị trí file chromedriver.exe
-
 	chrome_options = webdriver.ChromeOptions()
 	chrome_options.add_experimental_option("detach", True)	# Giữ chrome luôn mở
 	chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])	# Tắt thông báo chrome đang bị điều khiển
@@ -33,7 +32,6 @@ def Action_cmt():
 	driver = webdriver.Chrome(service=ser, options=chrome_options)
 
 	sleep(1)
-	current_url = etr_link_cmt.get()
 	driver.get(etr_link_cmt.get())
 	sleep(2)
 	#driver.execute_script("window.scrollTo(0, 100);")
