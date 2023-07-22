@@ -527,6 +527,6 @@ class MainApp(Tk):
 
 if __name__ == '__main__': 
 	main_app = MainApp()
-	main_app.wm_title("❤ Mai mông to ❤")
+	main_app.wm_title(""Cún đáng yêu 💘💘 "")
 	main_app.geometry('480x480+1000+350')
 	main_app.mainloop()

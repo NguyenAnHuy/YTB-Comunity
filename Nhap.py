@@ -56,7 +56,7 @@ import random
 from pathlib import Path
 
 root = Tk()
-root.wm_title("❤ Mai mông to ❤")
+root.wm_title("Cún đáng yêu 💘💘")
 root.geometry('480x480+1000+350')
 
 #key=""
