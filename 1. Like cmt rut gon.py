@@ -41,7 +41,7 @@ key=""
 
 def Action_cmt():
 	# chrome_driver_path = str(Path().absolute()) + '\\bin\\chromedriver.exe'
-	ser=Service(ChromeDriverManager().install())		# hàm đưa ra vị trí file chromedriver.exe
+	ser=Service(ChromeDriverManager().install())		# If the driver isn't found on your system PATH, Selenium Manager will automatically download it (chromedriver.exe)
 	chrome_options = webdriver.ChromeOptions()
 	chrome_options.add_experimental_option("detach", True)	# Giữ chrome luôn mở
 	chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])	# Tắt thông báo chrome đang bị điều khiển

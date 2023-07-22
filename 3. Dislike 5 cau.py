@@ -7,7 +7,7 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
-ser=Service(ChromeDriverManager().install())		# hàm đưa ra vị trí file chromedriver.exe
+ser = Service(ChromeDriverManager().install())		# hàm đưa ra vị trí file chromedriver.exe
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option("detach", True)	# Giữ chrome luôn mở
 chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])	# Tắt thông báo chrome đang bị điều khiển
@@ -19,7 +19,7 @@ chrome_options.add_argument(r'--profile-directory=Profile 9')
 driver = webdriver.Chrome(service=ser, options=chrome_options)
 
 sleep(1)
-url='https://www.youtube.com/channel/UCilwZiBBfI9X6yiZRzWty8Q/community?lc=UgyAgS2ABGhPEwTYWd54AaABAg&lb=UgkxiGQCPzk_dRMyZYqZTDB54SHH2zXm1bKx'
+url='https://www.youtube.com/channel/UCAJ9i1NhhlnosAGu7QcBEtw/community?lc=UgzhtBc3Dg1MOpswNLR4AaABAg&lb=UgkxzUIvTFaCRPi7LrmZki8qJkZdLUf0_90t'
 driver.get(url)
 sleep(2)
 
