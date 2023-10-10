@@ -122,3 +122,4 @@ btn_diss_like.grid(row=1, column=2, columnspan=1, sticky = W+E)			#Căn đều r
 
 
 root.mainloop()
+#10/2023
